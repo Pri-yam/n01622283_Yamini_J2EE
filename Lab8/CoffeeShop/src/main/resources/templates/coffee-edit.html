@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Coffee</title>
+</head>
+  <body>
+    <h1>Edit Coffee Details</h1>
+    <form th:action="@{/coffees/update/{id}(id=${coffee.id})}" method="post">
+      <!-- Hidden field to simulate the PUT method -->
+      <input type="hidden" name="_method" value="PUT"/>
+
+      <input type="hidden" th:value="${coffee.id}" name="id"/>
+
+      <label for="name">Coffee Name:</label>
+      <input type="text" id="name" name="name" th:value="${coffee.name}" required><br>
+
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" th:value="${coffee.price}" step="0.01" required><br>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" th:text="${coffee.description}"></textarea><br>
+
+      <input type="submit" value="Update Coffee">
+    </form>
+    <a href="/coffees">Cancel</a>
+  </body>
+</html>

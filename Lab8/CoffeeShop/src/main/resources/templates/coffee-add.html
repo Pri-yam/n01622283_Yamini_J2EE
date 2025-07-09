@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add New Coffee</title>
+</head>
+<body>
+<h1>Add a New Coffee</h1>
+<form action="/coffees/add" method="post">
+  <label for="name">Coffee Name:</label>
+  <input type="text" id="name" name="name" th:value="${coffee.name}" required><br>
+
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" th:value="${coffee.price}" step="0.01" required><br>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" th:text="${coffee.description}"></textarea><br>
+
+  <input type="submit" value="Add Coffee">
+</form>
+<a href="/coffees">Back to Coffee List</a>
+</body>
+</html>

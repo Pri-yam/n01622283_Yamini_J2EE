@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Welcome to Java Beans & Bytes – Your Cozy Corner for Coffee and Code Enthusiasts!</h1>
+    <p th:text="${message}"></p>
+    <div align="center">
+        <h3>Enter Login Detail</h3>
+        <form action="#" method="post" th:action="@{/login}">
+            <table>
+                <tr>
+                    <td>UserName:</td>
+                    <td><input name="userName" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input name="password" type="text"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input name="login" type="submit"></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <th:block th:if="${response=='added'}">Please login now !!</th:block>
+        <h3>Click here to register :<a th:href="@{/add}">Create an Account</a></h3>
+    </div>
+</body>
+</html>
+
