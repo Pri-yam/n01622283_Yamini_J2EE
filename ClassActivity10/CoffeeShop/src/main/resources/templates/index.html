@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Java Beans & Bytes</title>
+</head>
+<body>
+<h1>Welcome to Java Beans & Bytes – Your Cozy Corner for Coffee and Code Enthusiasts!</h1>
+
+<div align="center">
+    <h3>Enter Login Details</h3>
+
+    <!-- Login Form -->
+    <form th:action="@{/login}" method="post">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input name="username" type="text" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input name="password" type="password" required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Login Error Message  -->
+    <div th:if="${param.error}" style="color: red;">
+        Invalid username or password.
+    </div>
+
+    <!-- Logout Confirmation -->
+    <div th:if="${param.logout}" style="color: green;">
+        You have been logged out successfully.
+    </div>
+
+    <!-- Successful registration message -->
+    <div th:if="${response=='added'}" style="color: green;">
+        Registration successful! Please login below.
+    </div>
+
+    <br>
+
+    <!-- Register Link -->
+    <h3>Click here to register: <a th:href="@{/add}">Create an Account</a></h3>
+</div>
+</body>
+</html>
